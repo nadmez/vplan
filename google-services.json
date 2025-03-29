@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "380577092314",
+    "firebase_url": "https://vplan-aa80b-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "vplan-aa80b",
+    "storage_bucket": "vplan-aa80b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380577092314:android:17c084d7ed836a532a0be3",
+        "android_client_info": {
+          "package_name": "com.nadmez.vplan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380577092314-e8rhp3gtc19taqok67jlihonormbpja1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXrA1mGXYQoF6KoouWwUyRyatpWBTHIdw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380577092314-daq2r5jt6ldgke3o7lg3o0kece71ih37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

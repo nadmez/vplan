@@ -1,0 +1,30 @@
+VPlan/
+├── App/
+│   ├── components/         # Reusable UI components
+│   │   ├── MatchCard.js
+│   │   ├── Button.js
+│   │   └── ...
+│   ├── screens/            # Application screens
+│   │   ├── HomeScreen.js
+│   │   ├── LoginScreen.js
+│   │   ├── MatchListScreen.js
+│   │   ├── MatchDetailScreen.js
+│   │   ├── CreateMatchScreen.js
+│   │   ├── VenueListScreen.js
+│   │   ├── CreateVenueScreen.js
+│   │   └── ...
+│   ├── navigation/         # Navigation setup
+│   │   └── AppNavigator.js
+│   ├── services/           # API calls and data handling
+│   │   └── ApiService.js
+│   ├── utils/              # Helper functions and constants
+│   │   └── Constants.js
+│   ├── App.js              # Main application entry point
+│   └── styles.js           # Global styles
+├── assets/                 # Images, icons, etc.
+│   ├── images/
+│   └── icons/
+├── .gitignore              # Files to ignore by Git
+├── package.json            # Project dependencies
+├── babel.config.js         # Babel configuration
+└── README.md               # Project documentation

@@ -23,21 +23,16 @@
 import { initializeApp, FirebaseApp } from "firebase/app";
 import { getDatabase, Database } from "firebase/database";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// IMPORTANT: Replace these placeholders with your actual Firebase config
-// Consider using environment variables for security instead of hardcoding keys.
 export const firebaseConfig = {
-  apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY || "YOUR_API_KEY_tık_tık", // Example using environment variables
-  authDomain: process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN || "YOUR_AUTH_DOMAIN",
-  projectId: process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID || "YOUR_PROJECT_ID",
-  storageBucket: process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET || "YOUR_STORAGE_BUCKET",
-  messagingSenderId: process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "YOUR_MESSAGING_SENDER_ID",
-  appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID || "YOUR_APP_ID",
+  apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.EXPO_PUBLIC_FIREBASE_DATABASE_URL,
+  projectId: process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
   // measurementId: process.env.EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID // Optional
 };
-
-console.log("Here is the config",firebaseConfig);
 
 let appInstance: FirebaseApp | null = null;
 let databaseInstance: Database | null = null;
@@ -47,12 +42,15 @@ let databaseInstance: Database | null = null;
  * @returns {FirebaseApp} The initialized Firebase App instance.
  */
 const getFirebaseApp = (): FirebaseApp => {
+  console.log(firebaseConfig);
   if (!appInstance) {
     // Check if required config values are present (basic check)
-    if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "YOUR_API_KEY") {
-        console.warn("Firebase API Key is missing or using placeholder. Please configure it properly.");
-        // You might want to throw an error here in a real application
-        // throw new Error("Firebase configuration is incomplete.");
+    if (!firebaseConfig.apiKey) {
+      console.warn(
+        "Firebase API Key is missing or using placeholder. Please configure it properly."
+      );
+      // You might want to throw an error here in a real application
+      throw new Error("Firebase configuration is incomplete.");
     }
     console.log("Initializing Firebase App..."); // Log initialization
     appInstance = initializeApp(firebaseConfig);
@@ -66,7 +64,6 @@ const getFirebaseApp = (): FirebaseApp => {
  */
 export const getFirebaseDatabase = (): Database => {
   if (!databaseInstance) {
-    console.log("Initializing Firebase Database instance..."); // Log initialization
     const app = getFirebaseApp(); // Ensure app is initialized first
     databaseInstance = getDatabase(app);
   }

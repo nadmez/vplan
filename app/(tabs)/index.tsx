@@ -4,14 +4,8 @@ import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import {
-  getFirebaseDatabase,
-  firebaseConfig,
-} from "../../firebase/firebaseConfig";
-
-import { runCrudExample } from "../../firebase/api";
-
-const db = getFirebaseDatabase();
+import { firebaseConfig } from "@/firebase/firebaseConfig";
+import { supabaseConfig, supabase } from "@/supabase/supabaseConfig";
 
 export default function HomeScreen() {
   return (
@@ -65,7 +59,10 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 4: Firebase Config</ThemedText>
         <ThemedText>{JSON.stringify(firebaseConfig, null, 4)}</ThemedText>
-        <Button title="Crud" onPress={runCrudExample}></Button>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 5: Supabase Config</ThemedText>
+        <ThemedText>{JSON.stringify(supabaseConfig, null, 4)}</ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
